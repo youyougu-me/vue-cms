@@ -1,16 +1,17 @@
 
-
+//导入路由
 import VueRouter from 'vue-router'
 
-
-
-// import account from './main/Account.vue'
-
+//导入Tabbar的4个组件
+import HomeContainer from './components/tabbar/HomeContainer.vue'
+import MemberContainer from './components/tabbar/MemberContainer.vue'
+import SearchContainer from './components/tabbar/SearchContainer.vue'
+import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 
 
 //创建路由对象
-var router =new VueRouter({
-  routes:[
+var router = new VueRouter({
+  routes: [
     // {
     //   path:'/account',
     //   component:account,
@@ -21,9 +22,14 @@ var router =new VueRouter({
     //   ]
 
     // },
-
     // {path:'/goodslist',component:goodslist}
-  ]
+    {path:'/',redirect:'/home'},
+    { path: '/home', component: HomeContainer },
+    { path: '/member', component: MemberContainer },
+    { path: '/search', component: SearchContainer },
+    { path: '/shopcar', component: ShopcarContainer }
+  ],
+  linkActiveClass: 'mui-active'
 })
 
 //把路由对象暴露出去
