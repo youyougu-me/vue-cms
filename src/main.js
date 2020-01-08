@@ -4,6 +4,7 @@ import Vue from 'vue'
 //导入App根组件
 import App from './App.vue'
 
+
 //MInt-UI组件的导入与注册
 import { Header } from 'mint-ui'
 Vue.component(Header.name, Header)
@@ -15,6 +16,10 @@ Vue.component(SwipeItem.name, SwipeItem)
 //Toat是导入了直接用,所以Toast哪里导入哪里用.而轮播图注册到Vue身上,在.vue文件都可以用
 //import { Toast } from "mint-ui"
 //Vue.component(Toast)
+//导入按钮
+import { Button } from 'mint-ui';
+Vue.component(Button.name, Button);
+
 
 //导入MUI包
 import './lib/mui/css/mui.css'
@@ -44,6 +49,14 @@ Vue.http.options.root = "http://"+host.host+":"+host.port+"/";
 
 //全局启用：表示以哪种表单数据类型提交过去 
 Vue.http.options.emulateHTTP = true;
+
+//定义全局的时间过滤器
+//导入格式化时间插件
+import moment from 'moment'
+//两个参数,第一个参数是管道符前面那个参数,第二个参数是默认的时间格式(给个默认值,也可以自己传)
+Vue.filter('dataFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
+  return moment(dataStr).format(pattern)
+})
 
 var vm = new Vue({
   el: '#app',

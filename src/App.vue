@@ -42,6 +42,7 @@
 .app-container {
   padding-top: 40px;
   overflow-x: hidden;
+  padding-bottom: 50px;
 }
 .v-enter {
   opacity: 0;
@@ -54,6 +55,6 @@
 }
 .v-enter-active,
 .v-leave-active {
-  transition: all 1s ease;
+  transition: all 0.5s ease;
 }
 </style>
